@@ -1,0 +1,14 @@
+#option ('pickBestEngine', 0);
+#OPTION('outputLimit',100);
+
+tab_sum_ds:= '~delivery::export::despray::hc::gcid21030539::fsidmf001::bid1755533::hcp::ln_hcp_practitioner.txt';
+HCP:= DATASET(tab_sum_ds, recordof(tab_sum_ds,lookup),CSV(TERMINATOR('\n'), SEPARATOR('|'),HEADING(1)));
+//DATASET(tab_sum_ds, recordof(tab_sum_ds,lookup),FLAT);;
+//DATASET(tab_sum_ds, recordof(tab_sum_ds,lookup),CSV(TERMINATOR('\n'), SEPARATOR('|'),HEADING(1)));
+HCP;
+count(HCP);
+
+
+Serv_Lev:= HCP(lnpid = 'PIZ2J4JMSX');
+Serv_Lev;
+count(Serv_Lev);
